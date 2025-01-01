@@ -1,49 +1,140 @@
-body {
-    margin: 0;
-    overflow: hidden;
-    background-image: url('Images/Backdrop.gif');
-    background-size: cover;
-    background-repeat: no-repeat;
+/* 
+ * Enhanced styling for a falling-object game layout with responsive design
+ * and forward-looking maintainability
+ */
+
+/* Global resets and base styles */
+html, body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #000; /* Fallback background color */
+  background-image: url('Images/Backdrop.gif');
+  background-repeat: no-repeat;
+  background-size: cover;
+  /* You can also use background-position or background-attachment if needed */
 }
 
-#heart1, #heart2, #heart3{
-    height: auto;
-    width: 100px;
-    float: right;
-
+/* 
+ * Container for hearts, typically representing lives in the game. 
+ * This approach allows for easy extension if you add more hearts in the future.
+ */
+.heart-container {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  display: flex;
+  gap: 10px; /* spacing between hearts */
 }
 
+/* 
+ * Individual hearts styling 
+ * Adjust the size as needed, 
+ * or you can rely on a consistent size from the images themselves.
+ */
+.heart-container img {
+  width: 70px;
+  height: auto;
+  /* Optionally add animations or a hover effect */
+  transition: transform 0.2s ease;
+}
+
+.heart-container img:hover {
+  transform: scale(1.1);
+}
+
+/* 
+ * Main game container covering full viewport,
+ * but remains transparent to reveal background below. 
+ */
 #game-container {
-    position: relative;
-    width: 100%;
-    height: 100vh;
-    background-color: transparent; /* Make the game container transparent */
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  background-color: transparent;
+  /* 
+   * If you need to ensure an element is layered above or below this container,
+   * consider adding a z-index property here. 
+   */
 }
 
+/* 
+ * Player sprite container 
+ * Typically anchored at the bottom of the screen,
+ * centered horizontally (left: 50%; transform: translateX(-50%);).
+ */
 #player {
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 200px; /* Set the width as desired */
-    height: auto; /* Maintain aspect ratio */
+  position: absolute;
+  bottom: 0; 
+  left: 50%;
+  transform: translateX(-50%);
+  width: 200px; /* Adjust the width as needed for design */
+  height: auto; /* Maintain aspect ratio */
+  z-index: 5;   /* Player should be above other elements if needed */
 }
 
+/* 
+ * Timer displayed at top center of screen. 
+ * Adjust positioning or font styling as needed.
+ */
 #Timer {
-    position: absolute;
-    top: 20px; /* Adjust the top distance as needed */
-    left: 50%;
-    transform: translateX(-50%);
-    color: white;
-    font-size: 48px;
-    font-weight: bold;
-    background-color: transparent;
+  position: absolute;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #fff;
+  font-size: 3rem; 
+  font-weight: bold;
+  background-color: rgba(0, 0, 0, 0.3); /* Subtle background for readability */
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  /* 
+   * Optionally add a shadow to enhance visibility 
+   */
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.5);
+  z-index: 10;
 }
 
+/* 
+ * Class for falling objects 
+ * Example usage: 
+ * <div class="falling-object">…</div>
+ */
 .falling-object {
-    position: absolute;
-    width: 80px; /* Set the width as desired */
-    height: 80px; /* Set the height as desired */
-    /*    background-color: red; /* Change the color or use an image for the falling object  */
-    z-index: 1; /* Ensure the falling objects are on top */
+  position: absolute;
+  width: 80px; 
+  height: 80px; 
+  /* Example: background-color: red; or an image background */
+  /* background: url('Images/object.png') no-repeat center / contain; */
+  z-index: 3; /* Ensure the falling objects appear above the background */
+  /* 
+   * Potential transitions or animations can be applied here 
+   * or in a separate @keyframes rule for the downward motion
+   */
 }
+
+/* 
+ * Example animation for a smooth falling effect:
+ * Attach this class or inline style when spawning the objects
+ */
+@keyframes fall {
+  0% {
+    transform: translateY(-100%);
+    opacity: 0.8;
+  }
+  20% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100vh);
+    opacity: 0;
+  }
+}
+
+/* 
+ * Apply the fall animation if desired:
+ * .falling-object {
+ *   animation: fall 3s linear infinite;
+ * }
+ */
