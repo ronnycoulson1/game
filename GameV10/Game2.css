@@ -1,0 +1,49 @@
+body {
+    margin: 0;
+    overflow: hidden;
+    background-image: url('Images/Background2.gif');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+#heart1, #heart2, #heart3{
+    height: auto;
+    width: 100px;
+    float: right;
+
+}
+
+#game-container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    background-color: transparent; /* Make the game container transparent */
+}
+
+#player {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 200px; /* Set the width as desired */
+    height: auto; /* Maintain aspect ratio */
+}
+
+#Timer {
+    position: absolute;
+    top: 20px; /* Adjust the top distance as needed */
+    left: 50%;
+    transform: translateX(-50%);
+    color: white;
+    font-size: 48px;
+    font-weight: bold;
+    background-color: transparent;
+}
+
+.falling-object {
+    position: absolute;
+    width: 80px; /* Set the width as desired */
+    height: 80px; /* Set the height as desired */
+    /*    background-color: red; /* Change the color or use an image for the falling object  */
+    z-index: 1; /* Ensure the falling objects are on top */
+}

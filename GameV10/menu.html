@@ -1,0 +1,49 @@
+<html>
+<head>
+</head>
+<style>
+    body {
+        background-image: url("Images/start screen.png");
+        background-size: 100%;
+        background-position: 50% 50%;
+        background-attachment: fixed;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        height: 140vh;
+        margin: 0;
+        padding: 0;
+    }
+
+    img{
+        width: 335px;
+        height: 165px;
+        margin-top: 20px;
+        margin: 10px; /* Adjust margin as needed */
+        transition: width .3s;
+        transition: height .3s;
+    }
+    img:hover{
+        width: 380px;
+        height: 200px;
+        
+    }
+    
+</style>
+<body>
+    <img src="Images/start button.png" onclick="redirectToGame()">
+    <img src="Images/credits button.png" onclick="redirectToCredits()">
+
+    <script>
+        // Functions to redirect to game.html and credits.html
+        function redirectToGame() {
+            window.location.href = 'Level1.html'; // Redirect to game.html
+        }
+
+        function redirectToCredits() {
+            window.location.href = 'credits.html'; // Redirect to credits.html
+        }
+    </script>
+</body>
+</html>

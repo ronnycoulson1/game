@@ -1,0 +1,54 @@
+<html>
+<head>
+</head>
+<style>
+    body {
+        background-image: url("Images/gameover.png");
+        background-size: 100%;
+        background-position: 50% 50%;
+        background-attachment: fixed;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: left;
+        height: 140vh;
+        margin: 0;
+        padding: 0;
+    }
+
+    img {
+        width: 335px;
+        height: 165px;
+        margin-top: 10px;
+        margin: 10px; /* Adjust margin as needed */
+        transition: width .3s;
+        transition: height .3s;
+    }
+
+    img:hover{
+
+        width: 380px;
+        height: 200px;
+        
+    }
+    
+</style>
+<body>
+    <img src="Images/retry.png" onclick="Retry()">
+    <img src="Images/menu.png" onclick="redirectToMenu()">
+
+    <script>
+        
+        function Retry() {
+            //retry button
+            window.location.href = 'Level3.html'; // Redirect to game.html
+        }
+
+        function redirectToMenu() {
+            //menu button
+            window.location.href = 'menu.html'; // Redirect to credits.html
+        }
+
+    </script>
+</body>
+</html>

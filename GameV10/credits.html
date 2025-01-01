@@ -1,0 +1,101 @@
+<html>
+<head>
+    
+</head>
+<style>
+    body {
+            background-image: url("Images/Credits Screen.png");
+            
+            background-size: cover; 
+            
+            background-position: 50% 50%;
+            
+            background-color: #f2f2f2;
+            
+            background-attachment: fixed;
+        }
+        
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+        div.button img{
+            width: 200px;
+            height: 100px;
+            margin-top: 20px;
+            margin: 10px; /* Adjust margin as needed */
+            transition: width .3s;
+            transition: height .3s;
+        }
+        div.button img:hover{
+            width: 250px;
+            height: 125px;
+        }
+        #spirits {
+            position: relative;
+            width: 100px;
+            height: 100px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #spirit1, #spirit2, #spirit3, #spirit4, #spirit5 {
+            position: absolute;
+            width: 100px; 
+            height: 100px;
+            
+        }
+
+    #spirit1 { 
+        top: 63vh;
+        left: 70vw;
+    }
+    #spirit2 { 
+        top: 33vh; 
+        left: 70vw;
+    }
+    #spirit3 { 
+        top: 55vh; 
+        left: 25vw;
+    }
+    #spirit4 { 
+        top: 48vh; 
+        left: 70vw;
+    }
+    #spirit5 { 
+        top: 40vh; 
+        left: 25vw;
+    }
+</style>
+<body>
+    <div class = "button">
+        <img src="Images/back button.png" onclick="redirectToMenu()">
+    </div>
+    <div id="spirits">
+        <div class="spirit">
+            <img src="Images/Itzami.gif" id="spirit1">
+        </div>
+        <div class="spirit">
+            <img src="Images/Itzami2.gif" id="spirit2">
+        </div>
+        <div class="spirit">
+            <img src="Images/Itzami3.gif" id="spirit3">
+        </div>
+        <div class="spirit">
+            <img src="Images/Itzami4.gif" id="spirit4">
+        </div>
+        <div class="spirit">
+            <img src="Images/Itzami5.gif" id="spirit5">
+        </div>
+    </div>
+
+    <script>
+        // Functions to redirect to game.html and credits.html
+        function redirectToMenu() {
+            window.location.href = 'menu.html'; // Redirect to game.html
+        }
+    </script>
+</body>
+</html>
